@@ -1,0 +1,75 @@
+
+<div>
+  
+  <div>
+  <h1>Angular Pipes</h1>
+  Today's date :- {{presentDate}} <br/>
+  This is a short date:- {{presentDate | date:'shortDate' }} <br/>
+  This line shows the full date:- {{presentDate | date:'fullDate' }} <br/> 
+  This will show a formatted date:- {{presentDate | date:'M/dd/yyyy'}} <br/> 
+  This indicates the hours and minutes:- {{presentDate | date:'h:mm'}} 
+  Date with uppercase :- {{presentDate | date:'fullDate' | uppercase}} <br/> 
+  Date with lowercase :- {{presentDate | date:'medium' | lowercase}} <br/> 
+  Seconds changing in Time: {{ time$ | async | date:'mediumTime' }} <br/>
+  </div>
+  
+  
+  <div>
+  <h1>String Pipe</h1>
+  <p>Amount in Peso:- {{price | currency:'PHP':true}}</p>
+  </div>
+
+
+  
+  <div>
+    <h1>Number Pipe</h1>
+    <h4>Start index:- {{Fruits | slice:2}}</h4>
+    <h4>Start and end index:- {{Fruits | slice:1:4}}</h4>
+    <h4>Negative index:- {{Fruits | slice: -2}}</h4>
+    <h4>Reverse index:- {{Fruits | slice: -4:-2}}</h4>
+  </div>
+
+  <div style ="text-align: center;">
+    <h1>Decimal Pipe</h1>
+    <h4>Decimal Pipe 1 :- {{decimalNum1 | number}}</h4>
+    <h4>Decimal Pipe 2 :- {{decimalNum2 | number}}</h4>
+  </div>
+
+  
+  <div>
+    <h1>Percent Pipe</h1>
+    <p>A: {{ a | percent }}</p>
+    <p>B: {{ b | percent: '4.3-5' }}</p>
+    <p>B: {{ b | percent: '4.3-5' : 'fr' }}</p>
+  </div>
+
+  <div>
+    <h1>Async Pipe</h1>
+    <code>promise|async</code>:
+    <button (click)="clicked()">{{ arrived ? 'Reset' : 'Resolve' }}</button>
+    <span>Wait for it... {{ greeting | async }}</span>
+  </div>
+  <div>
+    <h1>JSON Pipe</h1>
+    <p>Without JSON pipe:</p>
+    <pre>{{ object }}</pre>
+    <p>With JSON pipe:</p>
+    <pre>{{ object | json }}</pre>
+  </div>
+
+  <div>
+    <h1>Json Pipe</h1>
+    <p>Object: {{testObject}}</p>
+    <p>Object: {{testObject | json}}</p>
+    <p>array: {{testArray}}</p>
+  </div>
+
+  <div>
+    <h1>Key-value Pipes</h1>
+    <div *ngFor="let item of testObject | keyvalue">
+      {{ item.key }}: {{ item.value }}
+  </div>
+
+  
+</div>
+<router-outlet />
