@@ -4,11 +4,13 @@ import { RouterOutlet } from '@angular/router';
 // import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { interval } from 'rxjs';
+import { MyserviceService } from './myservice.service';
+import { NewCmpComponent } from './new-cmp/new-cmp.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CommonModule],
+  imports: [RouterOutlet, CommonModule, NewCmpComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -36,9 +38,9 @@ export class AppComponent implements OnInit {
 
   private resolve: Function | null = null;
 
-  constructor() {
-    this.reset();
-  }
+  // constructor() {
+  //   this.reset();
+  // }
 
   reset() {
     this.arrived = false;
@@ -66,5 +68,12 @@ export class AppComponent implements OnInit {
     age: 25,
     food: 'Pizza'
   };
+
+  todaydate;
+  componentproperty;
+  constructor(private myservice: MyserviceService) { 
+    this.todaydate = myservice.showTodayDate();
+    this.componentproperty = this.myservice.serviceproperty;
+  }
   
 }

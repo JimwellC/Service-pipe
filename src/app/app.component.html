@@ -68,8 +68,13 @@
     <h1>Key-value Pipes</h1>
     <div *ngFor="let item of testObject | keyvalue">
       {{ item.key }}: {{ item.value }}
-  </div>
-
-  
+  </div>  
+</div>
+<div>
+  <h1>Service</h1>
+  <p>Today's Date: {{todaydate}}</p>
+  <p> {{componentproperty}} </p>
+  <app-new-cmp></app-new-cmp>
+</div>
 </div>
 <router-outlet />
